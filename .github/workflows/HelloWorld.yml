@@ -10,6 +10,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
-    - run: docker build -t back .
+    - run: docker build -t ghcr.io/Mellimoy01/back:1.0.0
       working-directory: cloud-native-epsi/back
+    - name: Docker Login
     - run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS}} ghcr.io
+    - name: Push the image
+    run : docker push ghcr.io/Mellimoy01/back:1.0.0
