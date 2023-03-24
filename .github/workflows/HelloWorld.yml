@@ -10,7 +10,7 @@ jobs:
     permissions: write-all
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME: ${{ github.repository }}
+      IMAGE_NAME: "cloud-native-godefroy"
       ACTOR: "mellimoy01"
       
     steps:
