@@ -20,8 +20,8 @@ jobs:
       uses: Docker/login-action@v2
       with:
         registry: ghcr.io
-        username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_PASS }}
+        username: ${{ github.Actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Push the image
       run : docker push ghcr.io/mellimoy01/back:1.0.0
