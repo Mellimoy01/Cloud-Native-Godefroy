@@ -16,8 +16,12 @@ jobs:
       run: docker build -t ghcr.io/mellimoy01/back:1.0.0 .
       working-directory: cloud-native-epsi/back
       
-    - name: Docker Login
-      run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS}} ghcr.io
+    - name: Login to GitHub Container Registery
+      uses: Docker/login-action@v2
+      with:
+        registery: ghcr.io
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASS }}
       
     - name: Push the image
       run : docker push ghcr.io/mellimoy01/back:1.0.0
