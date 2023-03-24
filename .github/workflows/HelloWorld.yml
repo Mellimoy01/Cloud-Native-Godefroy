@@ -10,6 +10,7 @@ jobs:
     
     steps:
     - run: pwd
+    - run: cd cloud-native-epsi/back && ls
     - name: Build the image
       run: docker build -t ghcr.io/mellimoy01/back:1.0.0 .
       working-directory: cloud-native-epsi/back
