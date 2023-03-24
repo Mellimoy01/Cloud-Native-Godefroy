@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Build the image
-      run: docker build -t ghcr.io/mellimoy01/back:1.0.0 .
+      run: docker build -t ghcr.io/mellimoy01/cloud-native-godefroy/back:1.0.0 .
       working-directory: cloud-native-epsi/back
       
     - name: Login to GitHub Container Registery
@@ -24,4 +24,4 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Push the image
-      run : docker push ghcr.io/mellimoy01/back:1.0.0
+      run : docker push ghcr.io/mellimoy01/cloud-native-godefroy/back:1.0.0
