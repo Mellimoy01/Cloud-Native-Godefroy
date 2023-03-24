@@ -12,3 +12,4 @@ jobs:
     - uses: actions/checkout@v3
     - run: docker build -t back .
       working-directory: cloud-native-epsi/back
+    - run: docker login -u ${{ secrets.Docker_User }} ghcr.io
