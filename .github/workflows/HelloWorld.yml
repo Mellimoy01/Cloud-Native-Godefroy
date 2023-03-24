@@ -9,8 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - run: ls
-    - run: cd cloud-native-epsi && ls
+    - name: Checkout the code
+      uses: actions/checkout@v3
+      
     - name: Build the image
       run: docker build -t ghcr.io/mellimoy01/back:1.0.0 .
       working-directory: cloud-native-epsi/back
