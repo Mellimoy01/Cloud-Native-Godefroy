@@ -10,8 +10,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
-    - run: cd back && ls
-    - run: ls
+    - run: docker build -t back .
       working-directory: back
     
     - run: docker --help
