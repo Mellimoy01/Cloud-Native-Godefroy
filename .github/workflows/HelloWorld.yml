@@ -31,6 +31,6 @@ jobs:
     - name: Build and Push
       uses: docker/build-push-action@v4
       with:
-          context: back
+          context: cloud-native-epsi/back
           push: true
           tags: ${{ env.REGISTRY}}/${{env.ACTOR}}/${{env.IMAGE_NAME}}/back:1.0.0
