@@ -10,4 +10,4 @@ services:
     build: back
     image: sebkhedim/cloud-native-api:1.0.0
     ports:
-    - "8080:8080"
+    - "8180:8080"
