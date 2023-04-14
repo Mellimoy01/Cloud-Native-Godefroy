@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+
+  db:
+    build: db
+    image: sebkhedim/cloud-native-db:1.0.0
+
+  words:
+    build: back
+    image: sebkhedim/cloud-native-api:1.0.0
+    ports:
+    - "8080:8080"
