@@ -1,0 +1,34 @@
+name: Docker build back
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      -'back/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
+      ACTOR: ${{ github.actor }}
+
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v3
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ env.ACTOR }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+        context: back
+        push: true
+        tags: ${{ env.REGISTRY }}/${{ env.ACTOR }}/${{ env.IMAGE_NAME }}-back:1.0.0
