@@ -11,3 +11,9 @@ services:
     image: sebkhedim/cloud-native-api:1.0.0
     ports:
     - "8180:8080"
+    
+  front:
+    build: front
+    image: mellimoy01front/cloud-native-api:1.0.0
+    ports:
+    - "8181:80"
